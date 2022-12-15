@@ -1,0 +1,32 @@
+From b5614ea8e1a55c586355b875723dd74ab357f68c Mon Sep 17 00:00:00 2001
+From: Bartosz Ptak <bartptak@gmail.com>
+Date: Thu, 10 Nov 2022 10:57:00 +0100
+Subject: [PATCH] Path
+
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7d7539b..0af84a8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -26,14 +26,14 @@ file(DOWNLOAD "https://artifacts.luxonis.com/artifactory/luxonis-depthai-data-lo
+ ${mobilenet_blob}
+ TIMEOUT 60  # seconds
+ EXPECTED_HASH SHA1=f0e14978b3f77a4f93b9f969cd39e58bb7aef490
+-TLS_VERIFY ON)
++TLS_VERIFY OFF)
+
+ set(tiny_yolo_v4_blob "${PROJECT_SOURCE_DIR}/resources/${tiny_yolo_v4_blob_name}")
+ file(DOWNLOAD "https://artifacts.luxonis.com/artifactory/luxonis-depthai-data-local/network/tiny-yolo-v4_openvino_2021.2_6shave.blob"
+   ${tiny_yolo_v4_blob}
+   TIMEOUT 60  # seconds
+   EXPECTED_HASH SHA1=219d949610a5760e62a8458941e1300b81c3fe4a
+-  TLS_VERIFY ON)
++  TLS_VERIFY OFF)
+
+ find_package(ament_cmake QUIET)
+ if ( ament_cmake_FOUND )
+-- 
+2.34.1
