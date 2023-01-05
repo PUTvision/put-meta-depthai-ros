@@ -68,7 +68,7 @@ FILES:${PN} += " \
     ${libdir}/lib*${SOLIBSDEV} \
 "
 
-ROS_BRANCH ?= "branch=ros-release"
+ROS_BRANCH ?= "branch=foxy"
 SRC_URI = "git://github.com/luxonis/depthai-ros;${ROS_BRANCH};protocol=https"
 SRCREV = "ebc6d6ff1fbd79829c71d4609a581043774c30e0"
 

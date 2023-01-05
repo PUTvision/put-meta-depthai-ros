@@ -63,7 +63,7 @@ FILES:${PN} += " \
     /usr/lib/depthai_examples/ \
 "
 
-ROS_BRANCH ?= "branch=ros-release"
+ROS_BRANCH ?= "branch=foxy"
 SRC_URI = "git://github.com/luxonis/depthai-ros;${ROS_BRANCH};protocol=https \
            file://0001-Disable-checksum.patch"
 
