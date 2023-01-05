@@ -67,7 +67,7 @@ ROS_BRANCH ?= "branch=ros-release"
 SRC_URI = "git://github.com/luxonis/depthai-ros;${ROS_BRANCH};protocol=https \
            file://0001-Disable-checksum.patch"
 
-SRCREV = "9ac79711a7ae247588a86c75911ddb306e03617f"
+SRCREV = "ebc6d6ff1fbd79829c71d4609a581043774c30e0"
 
 S = "${WORKDIR}/git/depthai_examples"
 

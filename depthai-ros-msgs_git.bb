@@ -70,7 +70,7 @@ FILES:${PN} += " \
 
 ROS_BRANCH ?= "branch=ros-release"
 SRC_URI = "git://github.com/luxonis/depthai-ros;${ROS_BRANCH};protocol=https"
-SRCREV = "af3a1ebff8d3ec8eecdece344d1250805294d520"
+SRCREV = "ebc6d6ff1fbd79829c71d4609a581043774c30e0"
 
 S = "${WORKDIR}/git/depthai_ros_msgs"
 
