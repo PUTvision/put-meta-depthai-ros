@@ -64,12 +64,31 @@ FILES:${PN} += " \
 "
 
 ROS_BRANCH ?= "branch=main"
-SRC_URI = "git://github.com/Michal-Bidzinski/OAK_camera_ros2;${ROS_BRANCH};protocol=https"
+SRC_URI = "git://github.com/Michal-Bidzinski/OAK_camera_ros2;${ROS_BRANCH};protocol=https \
+            file://put-camera-autostart.bash \
+            file://put-camera-autostart.service"
 
-SRCREV = "8c4c8d839d519fb27f52e6ae4a67e367774e3648"
+SRCREV = "7de95eab015681a52e6a0898412b7434ca4f387d"
 
 S = "${WORKDIR}/git"
 
 
 ROS_BUILD_TYPE = "ament_cmake"
 inherit ros_${ROS_BUILD_TYPE}
+
+inherit systemd
+
+SYSTEMD_PACKAGES = "${PN}"
+SYSTEMD_SERVICE:${PN} = "put-camera-autostart.service"
+SYSTEMD_AUTO_ENABLE:${PN} = "enable"
+
+do_install:append() {
+	install -d ${D}${bindir}
+	install -m 0755 ${WORKDIR}/put-camera-autostart.bash ${D}${bindir}
+
+	install -d ${D}${systemd_system_unitdir}
+	install -m 0644 ${WORKDIR}/put-camera-autostart.service ${D}${systemd_system_unitdir}
+}
+
+FILES:${PN} += "${systemd_system_unitdir}"
+

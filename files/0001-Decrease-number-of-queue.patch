@@ -1,0 +1,36 @@
+From 8cfe47bdf72727a1ec174eea29b217f80075c1b4 Mon Sep 17 00:00:00 2001
+From: Bartosz Ptak <bartptak@gmail.com>
+Date: Thu, 19 Jan 2023 08:35:38 +0100
+Subject: [PATCH] Decrease number of queue
+
+---
+ src/rgb_depth_publisher.cpp | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/rgb_depth_publisher.cpp b/src/rgb_depth_publisher.cpp
+index 28c7125..a7e63e6 100644
+--- a/src/rgb_depth_publisher.cpp
++++ b/src/rgb_depth_publisher.cpp
+@@ -177,9 +177,9 @@ int main(int argc, char** argv) {
+     auto rgbJpegQueue = device.getOutputQueue("rgb_jpeg", 30, true);
+     auto depthQueue = device.getOutputQueue("depth", 30, true);
+ 
+-    auto pubImgComp = node->create_publisher<sensor_msgs::msg::CompressedImage>("color/compressed", 30);
+-    auto pubDepth = node->create_publisher<sensor_msgs::msg::Image>("stereo/depth", 30);
+-    auto pubCameraInfo = node->create_publisher<sensor_msgs::msg::CameraInfo>("color/camera_info", 30);
++    auto pubImgComp = node->create_publisher<sensor_msgs::msg::CompressedImage>("color/compressed", 1);
++    auto pubDepth = node->create_publisher<sensor_msgs::msg::Image>("stereo/depth", 1);
++    auto pubCameraInfo = node->create_publisher<sensor_msgs::msg::CameraInfo>("color/camera_info", 1);
+ 
+     // Variables
+     cv::Mat mat, output;
+@@ -259,4 +259,4 @@ int main(int argc, char** argv) {
+ 
+     return 0;
+ 
+-}
+\ No newline at end of file
++}
+-- 
+2.34.1
+

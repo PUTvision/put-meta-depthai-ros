@@ -1,0 +1,14 @@
+[Unit]
+Description=Run a the ROS2 node with depthai camera
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=10
+Environment="HOME=root"
+WorkingDirectory=/home/root/
+ExecStart=/bin/bash /usr/bin/put-camera-autostart.bash
+
+[Install]
+WantedBy=multi-user.target
