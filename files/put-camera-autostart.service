@@ -6,7 +6,7 @@ After=multi-user.target
 Type=simple
 Restart=always
 RestartSec=10
-Environment="HOME=root"
+Environment="HOME=.logs"
 WorkingDirectory=/home/root/
 ExecStart=/bin/bash /usr/bin/put-camera-autostart.bash
 
